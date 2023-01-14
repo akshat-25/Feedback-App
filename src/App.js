@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// React is made up of components.
+// This is the main App Component.
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Header from "./components/Header"
+import FeedbackLists from "./components/FeedbackLists"
+import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
+import {FeedbackProvider} from './context/FeedbackContext'
+
+
+function App() {   
+    return (
+    <FeedbackProvider>
+    <Header />
+    <div className="container">
+    <FeedbackForm  />
+    <FeedbackStats />
+    <FeedbackLists/>
     </div>
-  );
+    </FeedbackProvider>
+    )
+   
+    
 }
 
 export default App;
